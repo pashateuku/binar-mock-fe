@@ -13,10 +13,17 @@ function App() {
           </div>
           
           <form className='form-content-input'>
+
             <p className='form-content-input__input-text'>4-digit UserID</p>
             <input className='form-content-input__input-form'></input>
+
             <p className='form-content-input__input-text'>Password</p>
             <input className='form-content-input__input-form'></input>
+
+            <button className='form-content-input__button-form'>Log In</button>
+
+            <a className='form-content-input__href-register' href='/register'>Create Account</a>
+
           </form>
 
         </div>
