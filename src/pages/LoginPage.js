@@ -13,7 +13,6 @@ function App() {
           </div>
           
           <form className='form-content-input'>
-            <p className='form-content-input__header-text'>Sign In</p>
             <p className='form-content-input__input-text'>4-digit UserID</p>
             <input className='form-content-input__input-form'></input>
             <p className='form-content-input__input-text'>Password</p>
