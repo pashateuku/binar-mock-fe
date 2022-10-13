@@ -7,6 +7,8 @@ import './assets/css/index.css';
 
 // import pages
 import AppPage from './pages/AppPage.js';
+import LoginPage from './pages/LoginPage.js';
+import RegisterPage from './pages/RegisterPage.js';
 
 // report web vitals
 import reportWebVitals from './reportWebVitals';
@@ -16,6 +18,8 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<AppPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/register" element={<RegisterPage />} />
     </Routes>
   </BrowserRouter>
 );
