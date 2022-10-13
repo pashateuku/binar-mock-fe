@@ -1,0 +1,102 @@
+.login-page {
+  background-color: #f1e0f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #2c2c2c;
+}
+
+/* Form Row */
+
+.form-parent {
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form Content (Header & Input) */
+
+.form-content {
+  height: 100%;
+
+  /* remove padding on bootsrap row */
+  padding: 0 !important; 
+}
+
+    /* Form Content - Header */
+
+    .form-content-header {
+      height: 25%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-content-header h2 {
+      text-align: center;
+      font-size: 3rem;
+      font-weight: 700;
+
+      margin: 0;
+    }
+    .form-content-header p {
+      text-align: center;
+      font-family: 'Open Sans';
+      font-weight: 400;
+      font-size: 2rem;
+
+      margin-bottom: 3rem;
+    }
+
+    /* Form Content - Input */
+
+    .form-content-input {
+      height: 75%;
+      background-color: #f5f8ff;
+      box-shadow:
+        2.5px 2.9px 4.5px rgba(0, 0, 0, 0.022),
+        6.4px 7.2px 11.3px rgba(0, 0, 0, 0.031),
+        13.1px 14.7px 23px rgba(0, 0, 0, 0.039),
+        27px 30.3px 47.5px rgba(0, 0, 0, 0.048),
+        74px 83px 130px rgba(0, 0, 0, 0.07)
+      ;
+      border-radius: 12px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 1rem;
+    }
+    
+    .form-content-input__header-text{
+      font-family: 'Open Sans';
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 1rem;
+
+    }
+
+    .form-content-input__input-text{
+      font-family: 'Open Sans';
+      font-weight: 500;
+      font-size: 1rem;
+      text-align: left;
+      margin-bottom: .5rem;
+    }
+
+    .form-content-input__input-form{
+      margin-bottom: 1rem;
+    }
+
+
+.App-link {
+  color: #61dafb;
+}
