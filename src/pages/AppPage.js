@@ -25,31 +25,31 @@ function App() {
               <div className='task-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing</div>
               <div className='task-icon-toggler'>✅</div>
               <div className='task-icon-updater'>✍</div>
-              <div className='task-icon-deleter'>😀</div>
+              <div className='task-icon-deleter'>❌</div>
             </form>
             <form className='task-parent'>
               <div className='task-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing</div>
               <div className='task-icon-toggler'>✅</div>
               <div className='task-icon-updater'>✍</div>
-              <div className='task-icon-deleter'>😀</div>
+              <div className='task-icon-deleter'>❌</div>
             </form>
             <form className='task-parent'>
               <div className='task-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing</div>
               <div className='task-icon-toggler'>✅</div>
               <div className='task-icon-updater'>✍</div>
-              <div className='task-icon-deleter'>😀</div>
+              <div className='task-icon-deleter'>❌</div>
             </form>
             <form className='task-parent'>
               <div className='task-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing</div>
               <div className='task-icon-toggler'>✅</div>
               <div className='task-icon-updater'>✍</div>
-              <div className='task-icon-deleter'>😀</div>
+              <div className='task-icon-deleter'>❌</div>
             </form>
             <form className='task-parent'>
               <div className='task-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing</div>
               <div className='task-icon-toggler'>✅</div>
               <div className='task-icon-updater'>✍</div>
-              <div className='task-icon-deleter'>😀</div>
+              <div className='task-icon-deleter'>❌</div>
             </form>
 
           </div>
