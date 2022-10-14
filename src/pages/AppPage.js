@@ -9,6 +9,16 @@ import { addTodoAsync } from '../features/todoSlice';
 import TaskListComponent from '../components/AppComponent/TaskListComponent';
 
 function App() {
+  const token = localStorage.getItem('token');
+  if(!token){
+    window.location.href = '/login'
+  }
+
+  const handleLogOut = () => {
+    localStorage.clear('token');
+    window.location.href = '/'
+  }
+
   const [value, setValue] = useState('');
 	const dispatch = useDispatch();
   
@@ -18,9 +28,11 @@ function App() {
 			dispatch(
 				addTodoAsync({
 					title: value,
+          foreign_id: token
 				})
 			);
 		}
+    setValue('')
 	};
 
   return (
@@ -31,7 +43,7 @@ function App() {
             
             <div className='task-header'>
               <h2>all task</h2>
-              <p>welcome, 1234</p>
+              <p>welcome to productivity</p>
             </div>
 
             <form onSubmit={onSubmit} className='form-add'>
@@ -48,7 +60,8 @@ function App() {
               </button>
             </form>
             
-            <TaskListComponent />
+            <TaskListComponent tokenId={token} />
+            <p onClick={handleLogOut} className='log-out-button'>Log Out</p>
           </div>
         </div>
       </header>

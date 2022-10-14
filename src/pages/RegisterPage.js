@@ -3,14 +3,44 @@ import '../assets/css/Register.css';
 
 import {useState} from 'react';
 
+import axios from 'axios';
+
 function App() {
-  const [value, setValue] = useState('');
+  const token = localStorage.getItem('token');
+  if(token){
+    window.location.href = '/'
+  }
 
-  const handleNumericInput = event => {
-    const result = event.target.value.replace(/\D/g, '');
+  //USESTATE FOR USERNAME AND PASSWORD
+  const [userId, setUserId] = useState('');
+  const [password, setPassword] = useState('');
 
-    setValue(result);
-  };
+  // // Numeric only Validation
+  // const handleNumericInput = event => {
+  //   const result = event.target.value.replace(/\D/g, '');
+
+  //   setValue(result);
+  // };
+
+  //HANDLE ON SUBMIT
+  const handleSubmit = async (e) => {
+      e.preventDefault();
+
+      try {
+          const result = await axios.post('https://todo-binar-api.herokuapp.com/register', {
+              user_4id: userId,
+              password: password
+          });
+          alert(result.data.message);
+
+          if(result.data.message === 'registration success'){
+            window.location.href = '/login'
+          }
+      }
+      catch (err) {
+          alert(err);
+      }
+  }
 
   return (
     <header className='register-page'>
@@ -22,7 +52,7 @@ function App() {
             <p>simply productive</p>
           </div>
           
-          <form className='form-content-input'>
+          <form onSubmit={handleSubmit} className='form-content-input'>
 
             <p className='form-content-input__input-text'>4-digit UserID</p>
             <input 
@@ -30,8 +60,8 @@ function App() {
               maxlength="4"
               id="user_4id"
               name="user_4id"
-              value={value}
-              onChange={handleNumericInput}
+              value={userId}
+              onChange={(e) => setUserId(e.target.value)}
             />
 
             <p className='form-content-input__input-text'>Password</p>
@@ -41,6 +71,7 @@ function App() {
               id="password"
               name="password"
               minlength="8"
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <button className='form-content-input__button-form'>Create new Account</button>

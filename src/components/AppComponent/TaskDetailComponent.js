@@ -1,24 +1,20 @@
 import React from 'react';
-// import { useDispatch } from 'react-redux';
-// import { toggleCompleteAsync, deleteTodoAsync } from '../redux/todoSlice';
+import { useDispatch } from 'react-redux';
+import { deleteTodoAsync } from '../../features/todoSlice';
 
 const TaskDetailComponent = ({ id, taskTitle}) => {
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
-	// const handleCheckboxClick = () => {
-	// 	dispatch(toggleCompleteAsync({ id, completed: !completed }));
-	// };
-
-	// const handleDeleteClick = () => {
-	// 	dispatch(deleteTodoAsync({ id }));
-	// };
+	const handleDeleteClick = () => {
+		dispatch(deleteTodoAsync({ id }));
+	};
 
 	return (
         <form className='task-parent'>
             <div className='task-desc'>{taskTitle}</div>
-            <div className='task-icon-toggler'>✅</div>
-            <div className='task-icon-updater'>✍</div>
-            <div className='task-icon-deleter'>❌</div>
+            {/* <button className='task-icon-toggler'>✅</button> */}
+            {/* <button className='task-icon-updater'>✍</button> */}
+            <button onClick={handleDeleteClick} className='task-icon-deleter'>❌</button>
         </form>
 	);
 };

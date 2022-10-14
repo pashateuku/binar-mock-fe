@@ -4,32 +4,28 @@ import { nanoid } from 'nanoid';
 
 export const getTodosAsync = createAsyncThunk(
 	'todos/getTodosAsync',
-	async () => {
-        const res = await axios.get('https://todo-binar-api.herokuapp.com/todo/2')
+	async (payload) => {
+        const res = await axios.get(`https://todo-binar-api.herokuapp.com/todo/${payload.id}`)
             const todosData = await res
             const todos = todosData.data.data.todo_data
+            console.log(todos)
             return { todos }
+	}
+);
+
+export const deleteTodoAsync = createAsyncThunk(
+	'todos/deleteTodoAsync',
+	async (payload) => {
+        await axios.post(`https://todo-binar-api.herokuapp.com/todo/delete/${payload.id}`)
+        return { id: payload.id };
 	}
 );
 
 export const addTodoAsync = createAsyncThunk(
 	'todos/addTodoAsync',
 	async (payload) => {
-		// const resp = await fetch('http://localhost:7000/todos', {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 	},
-		// 	body: JSON.stringify({ title: payload.title }),
-		// });
-
-		// if (resp.ok) {
-		// 	const todo = await resp.json();
-		// 	return { todo };
-		// }
-
         const res = await axios.post('https://todo-binar-api.herokuapp.com/todo/create', {
-            foreign_id: 2,  // tolong nanti diganti
+            foreign_id: payload.foreign_id,  // tolong nanti diganti
             todo_id: nanoid(),
             desc: payload.title,
         });
@@ -57,9 +53,9 @@ export const todoSlice = createSlice({
         // 	const index = state.findIndex((todo) => todo.id === action.payload.id);
         // 	state[index].completed = action.payload.completed;
 		// },
-		// deleteTodo: (state, action) => {
-		// 	return state.filter((todo) => todo.id !== action.payload.id);
-		// },
+		deleteTodo: (state, action) => {
+			return state.filter((todo) => todo.id !== action.payload.id);
+		},
 	},
 	extraReducers: {
 		[getTodosAsync.fulfilled]: (state, action) => {
@@ -74,9 +70,9 @@ export const todoSlice = createSlice({
 		// 	);
 		// 	state[index].completed = action.payload.todo.completed;
 		// },
-		// [deleteTodoAsync.fulfilled]: (state, action) => {
-		// 	return state.filter((todo) => todo.id !== action.payload.id);
-		// },
+		[deleteTodoAsync.fulfilled]: (state, action) => {
+			return state.filter((todo) => todo.id !== action.payload.id);
+		},
 	},
 });
 

@@ -113,6 +113,24 @@
       margin-right: 5%;
     }
 
+    .task-icon-toggler, .task-icon-updater, .task-icon-deleter {
+      cursor: pointer;
+      padding: 0;
+      background-color: white;
+      border: none;
+    }
+
+    .log-out-button {
+      cursor: pointer;
+      text-align: center;
+      font-family: 'Open Sans';
+      font-weight: 400;
+      font-size: 1.25rem;
+      text-decoration: underline;
+
+      margin-bottom: 0rem;
+    }
+
 .App-link {
   color: #61dafb;
 }
