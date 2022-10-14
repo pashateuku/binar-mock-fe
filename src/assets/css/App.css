@@ -70,6 +70,9 @@
     .form-add__input {
       width: 80%;
       height: 100%;
+      font-size: 1.2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
 
     .form-add__button {

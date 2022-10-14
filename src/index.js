@@ -13,14 +13,20 @@ import RegisterPage from './pages/RegisterPage.js';
 // report web vitals
 import reportWebVitals from './reportWebVitals';
 
+// import redux
+import { Provider } from 'react-redux';
+import store from './app/store';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<AppPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
-    </Routes>
+    <Provider store={store}> 
+      <Routes>
+          <Route path="/" element={<AppPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+      </Routes>
+    </Provider>
   </BrowserRouter>
 );
 

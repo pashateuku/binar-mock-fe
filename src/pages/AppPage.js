@@ -1,7 +1,27 @@
+import { useState } from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../assets/css/App.css';
 
+import { useDispatch } from 'react-redux';
+import { addTodoAsync } from '../features/todoSlice';
+
+import TaskListComponent from '../components/AppComponent/TaskListComponent';
+
 function App() {
+  const [value, setValue] = useState('');
+	const dispatch = useDispatch();
+  
+  const onSubmit = (event) => {
+		event.preventDefault();
+		if (value) {
+			dispatch(
+				addTodoAsync({
+					title: value,
+				})
+			);
+		}
+	};
 
   return (
     <section className='todo-section'>
@@ -14,44 +34,21 @@ function App() {
               <p>welcome, 1234</p>
             </div>
 
-            <form className='form-add'>
-              <input className='form-add__input'/>
-              <div className='form-add__button'>
+            <form onSubmit={onSubmit} className='form-add'>
+              <input 
+                type='text'
+                className='form-add__input'
+                placeholder='Add your new task'
+                value={value}
+                maxLength="50"
+                onChange={(event) => setValue(event.target.value)}
+              />
+              <button type='submit' className='form-add__button'>
                 <p>Add</p>
-              </div>
+              </button>
             </form>
             
-            <form className='task-parent'>
-              <div className='task-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing</div>
-              <div className='task-icon-toggler'>✅</div>
-              <div className='task-icon-updater'>✍</div>
-              <div className='task-icon-deleter'>❌</div>
-            </form>
-            <form className='task-parent'>
-              <div className='task-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing</div>
-              <div className='task-icon-toggler'>✅</div>
-              <div className='task-icon-updater'>✍</div>
-              <div className='task-icon-deleter'>❌</div>
-            </form>
-            <form className='task-parent'>
-              <div className='task-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing</div>
-              <div className='task-icon-toggler'>✅</div>
-              <div className='task-icon-updater'>✍</div>
-              <div className='task-icon-deleter'>❌</div>
-            </form>
-            <form className='task-parent'>
-              <div className='task-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing</div>
-              <div className='task-icon-toggler'>✅</div>
-              <div className='task-icon-updater'>✍</div>
-              <div className='task-icon-deleter'>❌</div>
-            </form>
-            <form className='task-parent'>
-              <div className='task-desc'>Lorem ipsum dolor sit amet, consectetur adipiscing</div>
-              <div className='task-icon-toggler'>✅</div>
-              <div className='task-icon-updater'>✍</div>
-              <div className='task-icon-deleter'>❌</div>
-            </form>
-
+            <TaskListComponent />
           </div>
         </div>
       </header>
