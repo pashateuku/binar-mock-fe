@@ -6,7 +6,7 @@ This app is developed in order to complete [Binar Mock Technical Test](https://d
 
 ## Description
 
-Simple to do list web-app with simple auth, task saved in database and you can access it by log into your account. **This is the 🔵 Front End Side's (React)**, you can directly move to 🔴 Back End Side (Express) repository by clicking this [link](https://github.com/pashateuku/binar-mock-be). you can see the deployed app by reaching this [link](todo-binar.herokuapp.com/)
+Simple to do list web-app with simple auth, task saved in database and you can access it by log into your account. **This is the 🔵 Front End Side (React)**, you can directly move to 🔴 Back End Side (Express) repository by clicking this [link](https://github.com/pashateuku/binar-mock-be). you can see the deployed app by reaching this [link](https://todo-binar.herokuapp.com/)
 
   
 
